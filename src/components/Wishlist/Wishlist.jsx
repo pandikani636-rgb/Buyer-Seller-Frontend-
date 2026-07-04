@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getWishlist } from '../../actions/wishlistAction';
 import MetaData from '../Layouts/MetaData';
-import Sidebar from '../User/Sidebar';
+// import Sidebar from '../User/Sidebar';
 import Product from './Product';
 
 const Wishlist = () => {
