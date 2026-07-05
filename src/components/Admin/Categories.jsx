@@ -11,7 +11,7 @@ import {
     IconButton,
     Button,
     Card,
-    CardContent,
+    // CardContent,
     Typography,
     TablePagination,
     TextField,
@@ -37,7 +37,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import MetaData from '../Layouts/MetaData';
 import CloseIcon from '@mui/icons-material/Close';
 import CategoryIcon from '@mui/icons-material/Category';
-import FolderIcon from '@mui/icons-material/Folder';
+// import FolderIcon from '@mui/icons-material/Folder';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import GridViewIcon from '@mui/icons-material/GridView';
@@ -50,14 +50,14 @@ import {
     deleteCategory,
     createCategory,
     updateCategory,
-    getCategoryDetails,
+    // getCategoryDetails,
     clearErrors
 } from "../../actions/categoryAction";
 import { NEW_CATEGORY_RESET, UPDATE_CATEGORY_RESET } from "../../constants/categoryConstants";
 
 const Categories = () => {
     const dispatch = useDispatch();
-    const { enqueueSnackbar } = useSnackbar();
+    // const { enqueueSnackbar } = useSnackbar();
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
     const [searchTerm, setSearchTerm] = useState('');

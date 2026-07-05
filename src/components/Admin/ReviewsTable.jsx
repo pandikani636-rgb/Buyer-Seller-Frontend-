@@ -22,7 +22,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { clearErrors, deleteReview, getAllReviews } from '../../actions/productAction';
 import { DELETE_REVIEW_RESET } from '../../constants/productConstants';
 import MetaData from '../Layouts/MetaData';
-import BackdropLoader from '../Layouts/BackdropLoader';
+// import BackdropLoader from '../Layouts/BackdropLoader';
 import Swal from 'sweetalert2';
 
 const ReviewsTable = () => {

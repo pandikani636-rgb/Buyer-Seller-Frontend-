@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useSnackbar } from 'notistack';
 import Swal from 'sweetalert2';
 import CircularProgress from '@mui/material/CircularProgress';
 
@@ -37,7 +36,6 @@ import AddIcon from '@mui/icons-material/Add';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
-import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import BadgeIcon from '@mui/icons-material/Badge';
 import CategoryIcon from '@mui/icons-material/Category';
 import MetaData from '../Layouts/MetaData';
@@ -149,7 +147,6 @@ const SearchField = styled(TextField)(({ theme }) => ({
 
 const Roles = () => {
     const dispatch = useDispatch();
-    const { enqueueSnackbar } = useSnackbar();
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
     const [searchTerm, setSearchTerm] = useState('');

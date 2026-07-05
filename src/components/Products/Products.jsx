@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useLocation, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { clearErrors, getProducts } from '../../actions/productAction';
 import { getCategories } from '../../actions/categoryAction';
 import { getSubCategories } from '../../actions/subCategoryAction';
-import Loader from '../Layouts/Loader';
 import Product from './Product';
 import Pagination from '@mui/material/Pagination';
 import Slider from '@mui/material/Slider';
-import FormControl from '@mui/material/FormControl';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
@@ -17,7 +15,6 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import SearchIcon from '@mui/icons-material/Search';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import CloseIcon from '@mui/icons-material/Close';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import StarIcon from '@mui/icons-material/Star';
 import { useSnackbar } from 'notistack';
 import MetaData from '../Layouts/MetaData';
@@ -27,7 +24,6 @@ const Products = () => {
     const navigate = useNavigate();
     const { enqueueSnackbar } = useSnackbar();
     const params = useParams();
-    const location = useLocation();
 
     // Filters
     const [price, setPrice] = useState([0, 200000]);
@@ -52,7 +48,6 @@ const Products = () => {
     const { products, loading, error, resultPerPage, filteredProductsCount } = useSelector(state => state.products);
     const { categories: adminCategories } = useSelector(state => state.categories);
     const { subCategories } = useSelector(state => state.subCategories);
-    const { isAuthenticated: sellerAuth } = useSelector((state) => state.seller);
     const keyword = params.keyword;
 
     // Redirect removed as per user request to allow sellers to view the marketplace.
@@ -106,7 +101,7 @@ const Products = () => {
         if (currentPage > 1) {
             dispatch(getProducts(keyword, category, price, ratings, currentPage));
         }
-    }, [currentPage]);
+    }, [currentPage, dispatch, keyword, category, price, ratings]);
 
     // Sort products - this only affects display order, not the filtered data
     const getSortedProducts = () => {

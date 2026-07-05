@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import BackdropLoader from '../components/Layouts/BackdropLoader';
 
 const SellerProtectedRoute = ({ children }) => {
-    const { loading, isAuthenticated, seller } = useSelector((state) => state.seller);
+    const { loading, isAuthenticated } = useSelector((state) => state.seller);
     const { isAuthenticated: isUserAuth } = useSelector((state) => state.user);
 
     if (loading === true) {

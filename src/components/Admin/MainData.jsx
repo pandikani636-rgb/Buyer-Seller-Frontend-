@@ -1,16 +1,16 @@
 import { useEffect } from 'react';
-import Chart from 'chart.js/auto'
-import { Doughnut, Line, Pie, Bar } from 'react-chartjs-2';
+// import Chart from 'chart.js/auto'
+import { Doughnut, Line, Bar } from 'react-chartjs-2';
 import { getAdminProducts } from '../../actions/productAction';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllOrders } from '../../actions/orderAction';
 import { getAllUsers } from '../../actions/userAction';
 import { getAdminSubCategories } from '../../actions/subCategoryAction';
 import MetaData from '../Layouts/MetaData';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
-import LocalMallIcon from '@mui/icons-material/LocalMall';
+// import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+// import LocalMallIcon from '@mui/icons-material/LocalMall';
 import PeopleIcon from '@mui/icons-material/People';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+// import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';

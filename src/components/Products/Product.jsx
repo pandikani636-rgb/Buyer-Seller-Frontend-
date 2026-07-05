@@ -2,8 +2,7 @@ import StarIcon from '@mui/icons-material/Star';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import CloseIcon from '@mui/icons-material/Close';
-import { Link, useNavigate } from 'react-router-dom';
-import { getDiscount } from '../../utils/functions';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItemsToCart, removeItemsFromCart } from '../../actions/cartAction';
 import { useSnackbar } from 'notistack';
@@ -11,14 +10,12 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 import { useState } from 'react';
 import Modal from '@mui/material/Modal';
-import Box from '@mui/material/Box';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { addToWishlist, removeFromWishlist } from '../../actions/wishlistAction';
 
 const Product = ({ _id, id, name, images, ratings, numOfReviews, price, cuttedPrice, stock, subCategoryType }) => {
 
     const dispatch = useDispatch();
-    const navigate = useNavigate();
     const { enqueueSnackbar } = useSnackbar();
 
     const { cartItems } = useSelector((state) => state.cart);
@@ -103,17 +100,6 @@ const Product = ({ _id, id, name, images, ratings, numOfReviews, price, cuttedPr
 
         dispatch(addItemsToCart(productId, 1, { _id, id, name, price, cuttedPrice, images, stock, subCategoryType }));
         enqueueSnackbar("Item added to cart", { variant: "success" });
-    }
-
-    const buyNowHandler = () => {
-        if (stock < 1) {
-            enqueueSnackbar("Item Unavailable", { variant: "error" });
-            return;
-        }
-        if (!itemInCart) {
-            dispatch(addItemsToCart(productId, 1, { _id, id, name, price, cuttedPrice, images, stock }));
-        }
-        navigate('/cart');
     }
 
     const BASE_URL = "http://localhost:4000/";

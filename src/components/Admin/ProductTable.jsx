@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import {
     Table,
@@ -12,14 +11,14 @@ import {
     IconButton,
     Button,
     Card,
-    CardContent,
+    // CardContent,
     Typography,
     TablePagination,
     CircularProgress,
     Box,
     Chip,
     Avatar,
-    Paper,
+    // Paper,
     Fade,
     alpha
 } from "@mui/material";
@@ -36,7 +35,7 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import GridViewIcon from '@mui/icons-material/GridView';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import SearchIcon from '@mui/icons-material/Search';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+// import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 
@@ -67,7 +66,6 @@ import { NEW_PRODUCT_RESET, UPDATE_PRODUCT_RESET, DELETE_PRODUCT_RESET } from ".
 
 const ProductTable = () => {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -97,7 +95,7 @@ const ProductTable = () => {
 
     const { loading, products, error } = useSelector((state) => state.products);
     const { isDeleted, error: deleteError, isUpdated, error: updateError } = useSelector((state) => state.product);
-    const { success: createSuccess, error: createError, loading: createLoading } = useSelector((state) => state.newProduct);
+    const { success: createSuccess, error: createError } = useSelector((state) => state.newProduct);
     const { product: productDetails } = useSelector((state) => state.productDetails);
     const { subCategories } = useSelector((state) => state.subCategories);
 
@@ -164,7 +162,7 @@ const ProductTable = () => {
             });
             setImagesPreview(productDetails.images?.map(img => img.url?.startsWith('http') ? img.url : `http://localhost:4000/admin/product/${img.url}`) || []);
         }
-    }, [dispatch, error, deleteError, isDeleted, createSuccess, createError, isUpdated, updateError, productDetails, openEditModal]);
+    }, [dispatch, error, deleteError, isDeleted, createSuccess, createError, isUpdated, updateError, productDetails, openEditModal, selectedProduct?._id]);
 
     const handleOpenAddModal = () => {
         setProductForm({ name: '', description: '', price: '', stock: '', category: '', status: 'Active', subCategoryType: 'Non-Prescription' });

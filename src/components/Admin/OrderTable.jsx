@@ -9,14 +9,14 @@ import {
     TableRow,
     IconButton,
     Card,
-    CardContent,
+    // CardContent,
     Typography,
     TablePagination,
     Box,
-    CircularProgress,
+    // CircularProgress,
     Chip,
     Avatar,
-    Paper,
+    // Paper,
     Fade,
     alpha,
     Tooltip
@@ -24,9 +24,9 @@ import {
 import { Button, Grid } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import LocalShippingIcon from '@mui/icons-material/LocalShipping';
-import InventoryIcon from '@mui/icons-material/Inventory';
+// import VisibilityIcon from '@mui/icons-material/Visibility';
+// import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+// import InventoryIcon from '@mui/icons-material/Inventory';
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import SearchIcon from '@mui/icons-material/Search';
 import FilterListIcon from '@mui/icons-material/FilterList';
@@ -40,6 +40,8 @@ import { useNavigate } from 'react-router-dom';
 import { getAllOrders, clearErrors, deleteOrder } from '../../actions/orderAction';
 import { useSnackbar } from 'notistack';
 import { DELETE_ORDER_RESET } from '../../constants/orderConstants';
+
+
 
 // Status color mapping
 const getStatusColor = (status) => {
@@ -552,8 +554,8 @@ const OrderTable = () => {
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                 .map((order, index) => {
                                     const statusColors = getStatusColor(order.orderStatus);
-                                    const totalQty = order.orderItems.reduce((total, item) => total + item.quantity, 0);
-                                    const firstItem = order.orderItems[0];
+                                    // const totalQty = order.orderItems.reduce((total, item) => total + item.quantity, 0);
+                                    // const firstItem = order.orderItems[0];
                                     
                                     return (
                                         <Grid item xs={12} sm={6} md={4} key={order._id}>
