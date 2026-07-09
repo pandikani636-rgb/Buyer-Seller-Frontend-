@@ -23,7 +23,6 @@ import {
   NEW_ROLE_REQUEST,
   NEW_ROLE_SUCCESS,
   NEW_ROLE_FAIL,
-  NEW_ROLE_RESET,
 
   CLEAR_ERRORS
 } from "../constants/rolesConstants";
