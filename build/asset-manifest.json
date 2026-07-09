@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.00785abf.css",
-    "main.js": "/static/js/main.e9e4c668.js",
+    "main.css": "/static/css/main.1181cb4e.css",
+    "main.js": "/static/js/main.511a8cf3.js",
     "static/media/quickbuy_logo.png": "/static/media/quickbuy_logo.2a58908695238552dfbc.png",
     "static/media/payment-methods.svg": "/static/media/payment-methods.69e7ec34d1302e6b58b2cb1abe6b2f9c.svg",
     "static/media/404-not-found.svg": "/static/media/404-not-found.f58b723c5e420e43683574327be5529a.svg",
@@ -18,12 +18,10 @@
     "static/media/delivery.svg": "/static/media/delivery.4b2d33e3b0b1efb9db13a9bb9d4be539.svg",
     "static/media/health-tips.svg": "/static/media/health-tips.45dcd02ef10541c7757915ab09fbed85.svg",
     "static/media/expert.svg": "/static/media/expert.4cac7c579d94d68cdff7dcaad13ec9b5.svg",
-    "static/media/brand.svg": "/static/media/brand.2ee440aec514d180c74a0b43c71ba753.svg",
-    "main.00785abf.css.map": "/static/css/main.00785abf.css.map",
-    "main.e9e4c668.js.map": "/static/js/main.e9e4c668.js.map"
+    "static/media/brand.svg": "/static/media/brand.2ee440aec514d180c74a0b43c71ba753.svg"
   },
   "entrypoints": [
-    "static/css/main.00785abf.css",
-    "static/js/main.e9e4c668.js"
+    "static/css/main.1181cb4e.css",
+    "static/js/main.511a8cf3.js"
   ]
 }
