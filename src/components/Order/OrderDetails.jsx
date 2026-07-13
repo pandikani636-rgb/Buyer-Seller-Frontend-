@@ -19,7 +19,7 @@ const OrderDetails = () => {
     const { order, error, loading } = useSelector((state) => state.orderDetails);
     const { isCancelled, error: cancelError } = useSelector((state) => state.order);
 
-    const BASE_URL = "http://localhost:4000/";
+    const BASE_URL = "https://buyer-seller-backend.vercel.app/";
 
     // Image URL-ku proper path construct pannura function
     const getImageUrl = (image) => {

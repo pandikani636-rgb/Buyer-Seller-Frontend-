@@ -31,7 +31,7 @@ const OrderItem = (props) => {
         }
     }, [isCancelled, cancelError, dispatch, enqueueSnackbar]);
 
-    const BASE_URL = "http://localhost:4000/";
+    const BASE_URL = "https://buyer-seller-backend.vercel.app/";
 
     // Construct proper image URL
     const getImageUrl = () => {

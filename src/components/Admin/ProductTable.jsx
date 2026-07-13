@@ -160,7 +160,7 @@ const ProductTable = () => {
                 status: productDetails.status || 'Active',
                 subCategoryType: productDetails.subCategoryType || 'Non-Prescription'
             });
-            setImagesPreview(productDetails.images?.map(img => img.url?.startsWith('http') ? img.url : `http://localhost:4000/admin/product/${img.url}`) || []);
+            setImagesPreview(productDetails.images?.map(img => img.url?.startsWith('http') ? img.url : `https://buyer-seller-backend.vercel.app/admin/product/${img.url}`) || []);
         }
     }, [dispatch, error, deleteError, isDeleted, createSuccess, createError, isUpdated, updateError, productDetails, openEditModal, selectedProduct?._id]);
 
@@ -534,7 +534,7 @@ const ProductTable = () => {
                                                     <TableCell align="left">
                                                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2.5 }}>
                                                             <Avatar 
-                                                                src={product.images?.[0]?.url?.startsWith('http') ? product.images[0].url : `http://localhost:4000/admin/product/${product.images?.[0]?.url}`}
+                                                                src={product.images?.[0]?.url?.startsWith('http') ? product.images[0].url : `https://buyer-seller-backend.vercel.app/admin/product/${product.images?.[0]?.url}`}
                                                                 sx={{
                                                                     width: 48,
                                                                     height: 48,
@@ -621,7 +621,7 @@ const ProductTable = () => {
                                                                 onClick={() => handleOpenImageModal(
                                                                     product.images?.[0]?.url?.startsWith('http')
                                                                         ? product.images[0].url
-                                                                        : `http://localhost:4000/admin/product/${product.images?.[0]?.url}`
+                                                                        : `https://buyer-seller-backend.vercel.app/admin/product/${product.images?.[0]?.url}`
                                                                 )}
                                                                 size="small"
                                                                 sx={{
@@ -751,7 +751,7 @@ const ProductTable = () => {
                                             }}>
                                                 <Box sx={{ position: 'relative', mb: 2 }}>
                                                     <Avatar 
-                                                        src={product.images?.[0]?.url?.startsWith('http') ? product.images[0].url : `http://localhost:4000/admin/product/${product.images?.[0]?.url}`}
+                                                        src={product.images?.[0]?.url?.startsWith('http') ? product.images[0].url : `https://buyer-seller-backend.vercel.app/admin/product/${product.images?.[0]?.url}`}
                                                         sx={{
                                                             width: '100%',
                                                             height: 160,

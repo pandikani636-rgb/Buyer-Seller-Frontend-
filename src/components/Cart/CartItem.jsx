@@ -31,7 +31,7 @@ const CartItem = ({ product, name, seller, price, cuttedPrice, image, stock, qua
         enqueueSnackbar("Asset De-listed from Session", { variant: "info" });
     }
 
-    const BASE_URL = "http://localhost:4000/";
+    const BASE_URL = "https://buyer-seller-backend.vercel.app/";
 
     return (
         <div className="p-6 hover:bg-blue-50/50 transition-all duration-700 animate-fade-in group" key={product}>

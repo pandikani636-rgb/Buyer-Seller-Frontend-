@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 const Product = ({ image, name, offer, tag }) => {
-    const BASE_URL = "http://localhost:4000/";
+    const BASE_URL = "https://buyer-seller-backend.vercel.app/";
     return (
         <Link to="/products" className="glass-card rounded-[2.5rem] flex flex-col items-center gap-4 p-8 cursor-pointer border-white/5 hover:border-blue-500/30 hover:bg-white/10 transition-all duration-500 hover:-translate-y-2 group group-hover:shadow-[0_20px_50px_rgba(59,130,246,0.1)]">
             <div className="w-28 h-28 rounded-2xl bg-white/5 flex items-center justify-center p-5 transform group-hover:scale-110 transition-transform duration-500 relative overflow-hidden">

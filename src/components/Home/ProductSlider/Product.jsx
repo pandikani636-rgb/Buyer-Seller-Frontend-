@@ -17,7 +17,7 @@ const Product = (props) => {
     const productId = _id || id;
     const itemInCart = cartItems.find((i) => i.product === productId);
 
-    const BASE_URL = "http://localhost:4000/";
+    const BASE_URL = "https://buyer-seller-backend.vercel.app/";
 
     const increaseQty = (e) => {
         e.preventDefault();

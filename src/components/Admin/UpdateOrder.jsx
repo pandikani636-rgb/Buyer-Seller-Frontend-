@@ -138,7 +138,7 @@ const UpdateOrder = () => {
                                             item.prescriptionUrl && (
                                                 <a
                                                     key={index}
-                                                    href={`http://localhost:4000/admin/product/${item.prescriptionUrl}`}
+                                                    href={`https://buyer-seller-backend.vercel.app/admin/product/${item.prescriptionUrl}`}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     style={{ textDecoration: 'underline', fontWeight: 'bold' }}

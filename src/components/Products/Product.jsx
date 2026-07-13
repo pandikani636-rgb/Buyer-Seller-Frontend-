@@ -102,7 +102,7 @@ const Product = ({ _id, id, name, images, ratings, numOfReviews, price, cuttedPr
         enqueueSnackbar("Item added to cart", { variant: "success" });
     }
 
-    const BASE_URL = "http://localhost:4000/";
+    const BASE_URL = "https://buyer-seller-backend.vercel.app/";
 
     return (
         <>

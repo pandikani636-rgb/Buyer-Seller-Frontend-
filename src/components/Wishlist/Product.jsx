@@ -21,7 +21,7 @@ const Product = (props) => {
 
     // Handle image: API returns images[] array, local format has image string
     const getImageSrc = () => {
-        const BASE_URL = "http://localhost:4000/";
+        const BASE_URL = "https://buyer-seller-backend.vercel.app/";
 
         // API populated product has images array
         if (props.images && props.images.length > 0) {

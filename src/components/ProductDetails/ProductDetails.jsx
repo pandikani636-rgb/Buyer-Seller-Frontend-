@@ -135,7 +135,7 @@ const ProductDetails = () => {
         dotsClass: "slick-dots premium-dots",
     };
 
-    const BASE_URL = "http://localhost:4000/";
+    const BASE_URL = "https://buyer-seller-backend.vercel.app/";
 
     useEffect(() => {
         if (error) {

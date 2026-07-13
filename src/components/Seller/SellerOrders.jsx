@@ -418,7 +418,7 @@ const SellerOrders = () => {
                                                                         item.prescriptionUrl && (
                                                                             <Tooltip key={index} title="View Prescription">
                                                                                 <IconButton
-                                                                                    href={`http://localhost:4000/admin/product/${item.prescriptionUrl}`}
+                                                                                    href={`https://buyer-seller-backend.vercel.app/admin/product/${item.prescriptionUrl}`}
                                                                                     target="_blank"
                                                                                     size="small"
                                                                                     sx={{
