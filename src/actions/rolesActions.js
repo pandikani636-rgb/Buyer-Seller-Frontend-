@@ -29,20 +29,30 @@ import {
 
 // Get all roles
 export const getAllRoles = () => async (dispatch) => {
+  console.log("getAllRoles Called");
+
   try {
     dispatch({ type: ALL_ROLES_REQUEST });
 
     const { data } = await axios.get("/api/v1/roles");
 
-    dispatch({ type: ALL_ROLES_SUCCESS, payload: data.roles });
+    console.log("API Response:", data);
+
+    dispatch({
+      type: ALL_ROLES_SUCCESS,
+      payload: data.roles,
+    });
 
   } catch (error) {
+    console.log("API Error:", error);
+
     dispatch({
       type: ALL_ROLES_FAIL,
       payload: error.response?.data?.message || error.message,
     });
   }
 };
+
 
 // Get role details by ID
 export const getRoleDetails = (id) => async (dispatch) => {

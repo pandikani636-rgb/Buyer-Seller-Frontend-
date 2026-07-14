@@ -366,7 +366,8 @@ const Register = () => {
 
 
 
-
+console.log("Roles fetched from database:", roles);
+console.log("Register Component Loaded");
 
 
 
