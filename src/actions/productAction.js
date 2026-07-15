@@ -137,7 +137,7 @@ export const getSliderProducts = () => async (dispatch) => {
     try {
         dispatch({ type: SLIDER_PRODUCTS_REQUEST });
 
-        const { data } = await axios.get("/api/v1/products/slider");
+        const { data } = await axios.get("/api/v1/products/slider",);
 
         dispatch({
             type: SLIDER_PRODUCTS_SUCCESS,
@@ -157,7 +157,12 @@ export const getAdminProducts = () => async (dispatch) => {
     try {
         dispatch({ type: ADMIN_PRODUCTS_REQUEST });
 
-        const { data } = await axios.get("/api/v1/admin/products");
+     const { data } = await axios.get(
+    "https://buyer-seller-backend.vercel.app/api/v1/admin/products",
+    {
+        withCredentials: true,
+    }
+);
 
         dispatch({
             type: ADMIN_PRODUCTS_SUCCESS,
@@ -218,7 +223,8 @@ export const updateProduct = (id, productData) => async (dispatch) => {
         const { data } = await axios.put(
             `/api/v1/admin/product/${id}`,
             productData,
-            config
+            config,
+        
         );
 
         dispatch({

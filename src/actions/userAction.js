@@ -48,10 +48,11 @@ export const loginUser = (email, password) => async (dispatch) => {
             headers: {
                 "Content-Type": "application/json",
             },
-        }
+            withCredentials: true,
+        };
 
         const { data } = await axios.post(
-            '/api/v1/login',
+            "https://buyer-seller-backend.vercel.app/api/v1/login",
             { email, password },
             config
         );
@@ -64,7 +65,7 @@ export const loginUser = (email, password) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: LOGIN_USER_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };
