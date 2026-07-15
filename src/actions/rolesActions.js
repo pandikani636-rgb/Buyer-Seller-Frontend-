@@ -28,27 +28,17 @@ import {
 } from "../constants/rolesConstants";
 
 // Get all roles
-export const getAllRoles = () => async (dispatch) => {
-  console.log("Current Origin:", window.location.origin);
+const response = await axios.get(
+  "https://buyer-seller-backend.vercel.app/api/v1/roles"
+);
 
-  try {
-    dispatch({ type: ALL_ROLES_REQUEST });
+console.log("Requested URL:", response.request?.responseURL);
+console.log("Response:", response.data);
 
-    const response = await axios.get("/api/v1/roles");
-
-    console.log("Requested URL:", response.request?.responseURL);
-    console.log("Response:", response.data);
-
-    dispatch({
-      type: ALL_ROLES_SUCCESS,
-      payload: response.data.roles,
-    });
-
-  } catch (error) {
-    console.log(error);
-  }
-};
-
+dispatch({
+  type: ALL_ROLES_SUCCESS,
+  payload: response.data.roles,
+});
 
 // Get role details by ID
 export const getRoleDetails = (id) => async (dispatch) => {
@@ -104,7 +94,9 @@ export const updateRole = (id, roleData) => async (dispatch) => {
   }
 };
 
+
 // Delete role
+
 export const deleteRole = (id) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_ROLE_REQUEST });
@@ -122,6 +114,8 @@ export const deleteRole = (id) => async (dispatch) => {
 };
 
 // Clear errors
+
 export const clearErrors = () => (dispatch) => {
   dispatch({ type: CLEAR_ERRORS });
 };
+
