@@ -28,17 +28,34 @@ import {
 } from "../constants/rolesConstants";
 
 // Get all roles
-const response = await axios.get(
-  "https://buyer-seller-backend.vercel.app/api/v1/roles"
-);
+// Get all roles
+export const getAllRoles = () => async (dispatch) => {
+  console.log("getAllRoles Called");
 
-console.log("Requested URL:", response.request?.responseURL);
-console.log("Response:", response.data);
+  try {
+    dispatch({ type: ALL_ROLES_REQUEST });
 
-dispatch({
-  type: ALL_ROLES_SUCCESS,
-  payload: response.data.roles,
-});
+    const response = await axios.get(
+      "https://buyer-seller-backend.vercel.app/api/v1/roles"
+    );
+
+    console.log("Requested URL:", response.request?.responseURL);
+    console.log("Response:", response.data);
+
+    dispatch({
+      type: ALL_ROLES_SUCCESS,
+      payload: response.data.roles,
+    });
+
+  } catch (error) {
+    console.log(error);
+
+    dispatch({
+      type: ALL_ROLES_FAIL,
+      payload: error.response?.data?.message || error.message,
+    });
+  }
+};
 
 // Get role details by ID
 export const getRoleDetails = (id) => async (dispatch) => {
