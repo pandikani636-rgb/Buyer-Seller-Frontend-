@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 import './index.css';
 import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -8,6 +9,8 @@ import store from './store';
 import { SnackbarProvider } from 'notistack';
 import { UserProvider } from './context/UserContext';
 import { replaceAlert } from './utils/sweetAlert';
+
+axios.defaults.baseURL = 'https://buyer-seller-backend.vercel.app';
 
 // Replace all alert functions with SweetAlert
 replaceAlert();
