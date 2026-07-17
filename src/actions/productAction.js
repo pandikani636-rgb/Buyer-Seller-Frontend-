@@ -158,7 +158,7 @@ export const getAdminProducts = () => async (dispatch) => {
         dispatch({ type: ADMIN_PRODUCTS_REQUEST });
 
      const { data } = await axios.get(
-    "https://buyer-seller-backend.vercel.app/api/v1/admin/products",
+    "/api/v1/admin/products",
     {
         withCredentials: true,
     }

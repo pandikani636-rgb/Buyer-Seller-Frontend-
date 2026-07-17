@@ -52,7 +52,7 @@ export const loginUser = (email, password) => async (dispatch) => {
         };
 
         const { data } = await axios.post(
-            "https://buyer-seller-backend.vercel.app/api/v1/login",
+            "/api/v1/login",
             { email, password },
             config
         );

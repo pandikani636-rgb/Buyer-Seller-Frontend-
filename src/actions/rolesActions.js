@@ -36,7 +36,7 @@ export const getAllRoles = () => async (dispatch) => {
     dispatch({ type: ALL_ROLES_REQUEST });
 
     const response = await axios.get(
-      "https://buyer-seller-backend.vercel.app/api/v1/roles"
+      "/api/v1/roles"
     );
 
     console.log("Requested URL:", response.request?.responseURL);
