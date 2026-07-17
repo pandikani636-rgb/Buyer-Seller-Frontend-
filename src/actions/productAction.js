@@ -200,9 +200,10 @@ export const createProduct = (productData) => async (dispatch) => {
             payload: data,
         });
     } catch (error) {
+        console.error("Create Product Error:", error.response?.data || error.message);
         dispatch({
             type: NEW_PRODUCT_FAIL,
-            payload: error.response?.data?.message || "Failed to create product",
+            payload: error.response?.data?.message || error.message || "Failed to create product",
         });
     }
 };
@@ -232,9 +233,10 @@ export const updateProduct = (id, productData) => async (dispatch) => {
             payload: data.success,
         });
     } catch (error) {
+        console.error("Update Product Error:", error.response?.data || error.message);
         dispatch({
             type: UPDATE_PRODUCT_FAIL,
-            payload: error.response?.data?.message || "Failed to update product",
+            payload: error.response?.data?.message || error.message || "Failed to update product",
         });
     }
 };

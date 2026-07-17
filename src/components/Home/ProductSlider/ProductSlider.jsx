@@ -45,6 +45,8 @@ const ProductSlider = ({ title, tagline, productId }) => {
     // Filter out the current product from the list if productId is provided
     const filteredProducts = productId ? products?.filter(product => product._id !== productId) : products;
 
+
+
     return (
         <section className="bg-white/50 backdrop-blur-3xl w-full overflow-hidden border border-blue-100 rounded-[3rem] shadow-2xl shadow-blue-900/5 mb-12">
             {/* <!-- header --> */}
@@ -83,7 +85,7 @@ const ProductSlider = ({ title, tagline, productId }) => {
                     )
                 )}
             </div>
-
+                     
         </section>
     );
 };
