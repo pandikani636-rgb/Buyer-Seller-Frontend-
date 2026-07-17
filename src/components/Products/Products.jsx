@@ -80,7 +80,16 @@ const Products = () => {
         dispatch(getSubCategories());
     }, [dispatch]);
 
-    // Apply filters when any filter changes
+    // Apply filters when any filter changes (error excluded to avoid infinite loop)
+    useEffect(() => {
+        // Reset to page 1 when filters change
+        setCurrentPage(1);
+        
+        // Dispatch API call with current filters
+        dispatch(getProducts(keyword, category, price, ratings, 1));
+    }, [dispatch, keyword, category, price, ratings]);
+
+    // Handle errors separately — does NOT re-trigger data fetching
     useEffect(() => {
         if (error) {
             if (error !== "Please Login to Access") {
@@ -88,13 +97,7 @@ const Products = () => {
             }
             dispatch(clearErrors());
         }
-        
-        // Reset to page 1 when filters change
-        setCurrentPage(1);
-        
-        // Dispatch API call with current filters
-        dispatch(getProducts(keyword, category, price, ratings, 1));
-    }, [dispatch, keyword, category, price, ratings, error, enqueueSnackbar]);
+    }, [dispatch, error, enqueueSnackbar]);
 
     // Handle page change separately
     useEffect(() => {

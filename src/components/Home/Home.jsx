@@ -27,6 +27,13 @@ const Home = () => {
   const { error, loading } = useSelector((state) => state.products);
   const { seller } = useSelector((state) => state.seller);
 
+  // Fetch data only once on mount
+  useEffect(() => {
+    dispatch(getSliderProducts());
+    dispatch(getProducts());
+  }, [dispatch]);
+
+  // Handle errors separately — does NOT re-trigger data fetching
   useEffect(() => {
     if (error) {
       if (error !== "Please Login to Access") {
@@ -34,8 +41,6 @@ const Home = () => {
       }
       dispatch(clearErrors());
     }
-    dispatch(getSliderProducts());
-    dispatch(getProducts());
   }, [dispatch, error, enqueueSnackbar]);
 
   return (
