@@ -43,7 +43,7 @@ export const getCategories = () => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: ALL_CATEGORY_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };
@@ -64,7 +64,7 @@ export const getAdminCategories = () => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: ADMIN_CATEGORY_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };
@@ -85,7 +85,7 @@ export const getCategoryDetails = (id) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: CATEGORY_DETAILS_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };
@@ -110,7 +110,7 @@ export const createCategory = (formData) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: NEW_CATEGORY_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };
@@ -135,7 +135,7 @@ export const updateCategory = (id, formData) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: UPDATE_CATEGORY_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };
@@ -156,7 +156,7 @@ export const deleteCategory = (id) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: DELETE_CATEGORY_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };

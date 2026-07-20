@@ -39,7 +39,7 @@ export const getSubCategories = () => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: ALL_SUBCATEGORY_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };
@@ -56,7 +56,7 @@ export const getAdminSubCategories = () => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: ADMIN_SUBCATEGORY_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };
@@ -73,7 +73,7 @@ export const getSubCategoryDetails = (id) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: SUBCATEGORY_DETAILS_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };
@@ -90,7 +90,7 @@ export const createSubCategory = (formData) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: NEW_SUBCATEGORY_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };
@@ -107,7 +107,7 @@ export const updateSubCategory = (id, formData) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: UPDATE_SUBCATEGORY_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };
@@ -124,7 +124,7 @@ export const deleteSubCategory = (id) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: DELETE_SUBCATEGORY_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };
