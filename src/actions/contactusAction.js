@@ -41,7 +41,7 @@ export const createContact = (formData) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: NEW_CONTACTUS_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };
@@ -62,7 +62,7 @@ export const getContactusList = () => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: ALL_CONTACTUS_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };
@@ -83,7 +83,7 @@ export const getAdminContactus = () => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: ADMIN_CONTACTUS_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };
@@ -104,7 +104,7 @@ export const getContactusDetails = (id) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: CONTACTUS_DETAILS_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };
@@ -125,7 +125,7 @@ export const deleteContactus = (id) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: DELETE_CONTACTUS_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };

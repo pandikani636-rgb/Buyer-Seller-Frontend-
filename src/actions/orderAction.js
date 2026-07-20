@@ -23,7 +23,7 @@ export const newOrder = (order) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: NEW_ORDER_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };
@@ -43,7 +43,7 @@ export const myOrders = () => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: MY_ORDERS_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };
@@ -63,7 +63,7 @@ export const getOrderDetails = (id) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: ORDER_DETAILS_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };
@@ -83,7 +83,7 @@ export const getPaymentStatus = (id) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: PAYMENT_STATUS_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };
@@ -103,7 +103,7 @@ export const getAllOrders = () => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: ALL_ORDERS_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };
@@ -130,7 +130,7 @@ export const updateOrder = (id, order) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: UPDATE_ORDER_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };
@@ -150,7 +150,7 @@ export const deleteOrder = (id) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: DELETE_ORDER_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };
@@ -170,7 +170,7 @@ export const cancelOrder = (id) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: CANCEL_ORDER_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };

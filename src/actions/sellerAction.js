@@ -74,7 +74,7 @@ export const loadSeller = () => async (dispatch) => {
 
         dispatch({ type: LOAD_SELLER_SUCCESS, payload: data.seller });
     } catch (error) {
-        dispatch({ type: LOAD_SELLER_FAIL, payload: error.response.data.message });
+        dispatch({ type: LOAD_SELLER_FAIL, payload: error.response?.data?.message || error.message });
     }
 };
 
@@ -84,7 +84,7 @@ export const logoutSeller = () => async (dispatch) => {
         await axios.get(`/api/v1/logout`);
         dispatch({ type: LOGOUT_SELLER_SUCCESS });
     } catch (error) {
-        dispatch({ type: LOGOUT_SELLER_FAIL, payload: error.response.data.message });
+        dispatch({ type: LOGOUT_SELLER_FAIL, payload: error.response?.data?.message || error.message });
     }
 };
 
@@ -99,7 +99,7 @@ export const getSellerStats = (id) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: SELLER_STATS_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };
@@ -121,7 +121,7 @@ export const updateSeller = (id, sellerData) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: UPDATE_PROFILE_FAIL,
-            payload: error.response.data.message,
+            payload: error.response?.data?.message || error.message,
         });
     }
 };
