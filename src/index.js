@@ -19,6 +19,29 @@ axios.defaults.baseURL = isDev
 // Enable credentials (cookies) for all requests
 axios.defaults.withCredentials = true;
 
+// Handle 401 Unauthorized response globally (session expired / invalid token signature)
+axios.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response && error.response.status === 401) {
+      // Clear redux authentication state
+      store.dispatch({ type: 'LOGOUT_USER_SUCCESS' });
+      store.dispatch({ type: 'LOGOUT_SELLER_SUCCESS' });
+      
+      const currentPath = window.location.pathname;
+      const isProtected = currentPath.startsWith('/admin') || 
+                          currentPath.startsWith('/seller') || 
+                          currentPath.startsWith('/account') || 
+                          currentPath.startsWith('/me') || 
+                          currentPath.startsWith('/orders');
+      if (isProtected) {
+        window.location.href = '/login';
+      }
+    }
+    return Promise.reject(error);
+  }
+);
+
 // Replace all alert functions with SweetAlert
 replaceAlert();
 
