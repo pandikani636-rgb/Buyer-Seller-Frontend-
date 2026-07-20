@@ -24,18 +24,29 @@ axios.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response && error.response.status === 401) {
-      // Clear redux authentication state
-      store.dispatch({ type: 'LOGOUT_USER_SUCCESS' });
-      store.dispatch({ type: 'LOGOUT_SELLER_SUCCESS' });
-      
+      const requestUrl = error.config?.url || '';
       const currentPath = window.location.pathname;
-      const isProtected = currentPath.startsWith('/admin') || 
-                          currentPath.startsWith('/seller') || 
-                          currentPath.startsWith('/account') || 
-                          currentPath.startsWith('/me') || 
-                          currentPath.startsWith('/orders');
-      if (isProtected) {
-        window.location.href = '/login';
+
+      if (requestUrl.includes('/api/v1/seller')) {
+        // Clear seller session
+        store.dispatch({ type: 'LOGOUT_SELLER_SUCCESS' });
+        
+        // Only redirect if they are on a seller page
+        if (currentPath.startsWith('/seller')) {
+          window.location.href = '/login';
+        }
+      } else {
+        // Clear user/admin session
+        store.dispatch({ type: 'LOGOUT_USER_SUCCESS' });
+        
+        // Only redirect if they are on a protected user/admin page
+        const isProtected = currentPath.startsWith('/admin') || 
+                            currentPath.startsWith('/account') || 
+                            currentPath.startsWith('/me') || 
+                            currentPath.startsWith('/orders');
+        if (isProtected) {
+          window.location.href = '/login';
+        }
       }
     }
     return Promise.reject(error);
