@@ -63,6 +63,7 @@ const Header = () => {
   const closeMobileMenu = () => setMobileMenuOpen(false);
 
   return (
+    <>
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
       isScrolled 
         ? 'bg-white shadow-md border-b border-gray-200 py-2' 
@@ -251,16 +252,18 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu - Flipkart/Amazon Style */}
-      <div className={`lg:hidden fixed inset-0 bg-black/50 transition-all duration-300 z-50 ${
+      </header>
+
+      {/* Mobile Menu - Flipkart/Amazon Style (Moved outside header for proper fixed positioning) */}
+      <div className={`lg:hidden fixed inset-0 bg-black/50 transition-all duration-300 z-[100] ${
         mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
       }`} onClick={closeMobileMenu}>
-        <div className={`fixed top-0 right-0 h-full w-[85%] max-w-sm bg-white shadow-xl transition-all duration-300 ${
+        <div className={`fixed top-0 right-0 h-screen w-[85%] max-w-sm bg-white shadow-xl transition-all duration-300 flex flex-col ${
           mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`} onClick={e => e.stopPropagation()}>
           
           {/* Mobile Menu Header - Flipkart Style */}
-          <div className="bg-[#2874f0] p-5">
+          <div className="bg-[#2874f0] p-5 shrink-0">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
                 <img className="w-6 h-6 object-contain" src={quickByLogo} alt="" />
@@ -291,7 +294,7 @@ const Header = () => {
           </div>
 
           {/* Mobile Navigation - Flipkart Style */}
-          <div className="p-4">
+          <div className="p-4 flex-1 overflow-y-auto">
             <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 px-3">
               Navigation
             </p>
@@ -362,10 +365,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-
-      {/* No Scroll Progress Indicator - Removed for Flipkart/Amazon style */}
-
-    </header>
+    </>
   );
 };
 
