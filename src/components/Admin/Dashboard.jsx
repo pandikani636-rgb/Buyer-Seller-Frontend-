@@ -22,14 +22,18 @@ const Dashboard = ({ activeTab, children }) => {
         <>
             <main className="flex min-h-screen min-w-full relative bg-slate-50">
 
-                {!onMobile && <Sidebar activeTab={activeTab} />}
+                {!onMobile && (
+                    <div className="fixed inset-y-0 left-0 z-50 w-[280px]">
+                        <Sidebar activeTab={activeTab} />
+                    </div>
+                )}
                 {toggleSidebar && (
                     <>
                         <div
                             className="fixed inset-0 bg-blue-950/20 backdrop-blur-sm z-[1001] md:hidden"
                             onClick={() => setToggleSidebar(false)}
                         />
-                        <div className="fixed inset-y-0 left-0 z-[1002] md:hidden animate-fade-in-left">
+                        <div className="fixed inset-y-0 left-0 z-[1002] md:hidden w-[280px] animate-fade-in-left">
                             <Sidebar activeTab={activeTab} setToggleSidebar={setToggleSidebar} />
                         </div>
                     </>

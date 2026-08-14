@@ -22,14 +22,18 @@ const SellerDashboard = ({ activeTab, children }) => {
         <>
             <main className="flex min-h-screen min-w-full relative bg-slate-50">
 
-                {!onMobile && <SellerSidebar activeTab={activeTab} />}
+                {!onMobile && (
+                    <div className="fixed inset-y-0 left-0 z-50 w-64">
+                        <SellerSidebar activeTab={activeTab} />
+                    </div>
+                )}
                 {toggleSidebar && (
                     <>
                         <div
                             className="fixed inset-0 bg-green-950/20 backdrop-blur-sm z-[1001] md:hidden"
                             onClick={() => setToggleSidebar(false)}
                         />
-                        <div className="fixed inset-y-0 left-0 z-[1002] md:hidden animate-fade-in-left">
+                        <div className="fixed inset-y-0 left-0 z-[1002] md:hidden w-64 animate-fade-in-left">
                             <SellerSidebar activeTab={activeTab} setToggleSidebar={setToggleSidebar} />
                         </div>
                     </>

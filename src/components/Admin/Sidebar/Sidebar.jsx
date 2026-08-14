@@ -139,7 +139,7 @@ const Sidebar = ({ activeTab, setToggleSidebar }) => {
     };
 
     return (
-        <aside className="w-64 bg-white border-r border-gray-200 h-screen fixed left-0 top-0 flex flex-col shadow-sm">
+        <aside className="w-full bg-white border-r border-gray-200 h-full flex flex-col shadow-sm">
             
             {/* Logo Section - Flipkart/Amazon Style */}
             <div className="h-16 flex items-center px-4 border-b border-gray-200">
